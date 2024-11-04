@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import {
   View,
   Text,
@@ -6,211 +6,216 @@ import {
   TouchableOpacity,
   TextInput,
   ScrollView,
+  Alert,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Animated, { FadeIn } from "react-native-reanimated";
-import Toast from "../components/Toast";
+import OrderBook from "../components/trade/OrderBook";
 
 const TradeScreen = () => {
   const [activeTab, setActiveTab] = useState<"buy" | "sell">("buy");
   const [orderType, setOrderType] = useState<"limit" | "market">("limit");
   const [price, setPrice] = useState("");
   const [amount, setAmount] = useState("");
-  const [showToast, setShowToast] = useState(false);
-  const [toastMessage, setToastMessage] = useState("");
+  const [total, setTotal] = useState("0.00");
+  const [orderBookData, setOrderBookData] = useState({
+    asks: [] as Array<[string, string]>,
+    bids: [] as Array<[string, string]>,
+    lastPrice: "45850.00",
+    priceChangePercent: "1.2",
+  });
 
-  const handleSubmit = () => {
+  const calculateTotal = useCallback(() => {
+    if (price && amount) {
+      const totalValue = parseFloat(price) * parseFloat(amount);
+      setTotal(totalValue.toFixed(2));
+    } else {
+      setTotal("0.00");
+    }
+  }, [price, amount]);
+
+  const validateFields = (): boolean => {
     if (orderType === "limit" && !price) {
-      setToastMessage("Por favor, insira um preço");
-      setShowToast(true);
-      return;
+      Alert.alert("Erro", "Por favor, insira um preço");
+      return false;
     }
-
     if (!amount) {
-      setToastMessage("Por favor, insira uma quantidade");
-      setShowToast(true);
-      return;
+      Alert.alert("Erro", "Por favor, insira uma quantidade");
+      return false;
     }
-
-    const orderDetails = {
-      type: activeTab,
-      orderType: orderType,
-      price: price,
-      amount: amount,
-    };
-
-    console.log("Ordem enviada:", orderDetails);
-
-    setPrice("");
-    setAmount("");
-
-    setToastMessage(
-      `Ordem de ${
-        activeTab === "buy" ? "compra" : "venda"
-      } enviada com sucesso!`
-    );
-    setShowToast(true);
+    if (parseFloat(amount) <= 0) {
+      Alert.alert("Erro", "A quantidade deve ser maior que zero");
+      return false;
+    }
+    return true;
   };
 
-  const renderOrderBook = () => (
-    <View style={styles.orderBookContainer}>
-      <Text style={styles.sectionTitle}>Livro de Ofertas</Text>
-      <View style={styles.orderBookHeader}>
-        <Text style={styles.orderBookHeaderText}>Preço</Text>
-        <Text style={styles.orderBookHeaderText}>Quantidade</Text>
-        <Text style={styles.orderBookHeaderText}>Total</Text>
-      </View>
-      {/* Simulação de ordens de venda */}
-      {[...Array(5)].map((_, i) => (
-        <View key={`sell-${i}`} style={styles.orderBookRow}>
-          <Text style={[styles.orderBookText, styles.sellPrice]}>
-            $45,{(900 + i * 10).toString()}
-          </Text>
-          <Text style={styles.orderBookText}>0.{(234 + i).toString()}</Text>
-          <Text style={styles.orderBookText}>12,{(345 + i).toString()}</Text>
-        </View>
-      ))}
+  const handleSubmit = () => {
+    if (!validateFields()) return;
 
-      <View style={styles.currentPrice}>
-        <Text style={styles.currentPriceText}>$45,850</Text>
-        <Text style={styles.priceChangeText}>+1.2%</Text>
-      </View>
+    Alert.alert(
+      "Confirmar Ordem",
+      `Você deseja ${
+        activeTab === "buy" ? "comprar" : "vender"
+      } ${amount} BTC ${
+        orderType === "limit" ? `por $${price}` : "a preço de mercado"
+      }?`,
+      [
+        {
+          text: "Cancelar",
+          style: "cancel",
+        },
+        {
+          text: "Confirmar",
+          onPress: () => {
+            console.log("Ordem executada:", {
+              type: activeTab,
+              orderType,
+              price,
+              amount,
+              total,
+            });
 
-      {/* Simulação de ordens de compra */}
-      {[...Array(5)].map((_, i) => (
-        <View key={`buy-${i}`} style={styles.orderBookRow}>
-          <Text style={[styles.orderBookText, styles.buyPrice]}>
-            $45,{(800 - i * 10).toString()}
-          </Text>
-          <Text style={styles.orderBookText}>0.{(345 - i).toString()}</Text>
-          <Text style={styles.orderBookText}>12,{(234 - i).toString()}</Text>
-        </View>
-      ))}
-    </View>
-  );
+            setPrice("");
+            setAmount("");
+            setTotal("0.00");
 
-  const renderTradeForm = () => (
-    <View style={styles.tradeFormContainer}>
-      <View style={styles.tabContainer}>
-        <TouchableOpacity
-          style={[styles.tab, activeTab === "buy" && styles.activeTab]}
-          onPress={() => setActiveTab("buy")}
-        >
-          <Text
-            style={[
-              styles.tabText,
-              activeTab === "buy" && styles.activeTabText,
-            ]}
-          >
-            Comprar
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.tab, activeTab === "sell" && styles.activeTab]}
-          onPress={() => setActiveTab("sell")}
-        >
-          <Text
-            style={[
-              styles.tabText,
-              activeTab === "sell" && styles.activeTabText,
-            ]}
-          >
-            Vender
-          </Text>
-        </TouchableOpacity>
-      </View>
+            Alert.alert(
+              "Sucesso",
+              `Ordem de ${
+                activeTab === "buy" ? "compra" : "venda"
+              } enviada com sucesso!`
+            );
+          },
+        },
+      ]
+    );
+  };
 
-      <View style={styles.orderTypeContainer}>
-        <TouchableOpacity
-          style={[
-            styles.orderTypeButton,
-            orderType === "limit" && styles.activeOrderType,
-          ]}
-          onPress={() => setOrderType("limit")}
-        >
-          <Text
-            style={[
-              styles.orderTypeText,
-              orderType === "limit" && styles.activeOrderTypeText,
-            ]}
-          >
-            Limite
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[
-            styles.orderTypeButton,
-            orderType === "market" && styles.activeOrderType,
-          ]}
-          onPress={() => setOrderType("market")}
-        >
-          <Text
-            style={[
-              styles.orderTypeText,
-              orderType === "market" && styles.activeOrderTypeText,
-            ]}
-          >
-            Mercado
-          </Text>
-        </TouchableOpacity>
-      </View>
+  useEffect(() => {
+    const generateOrderBookData = () => {
+      const asks = Array.from({ length: 10 }, (_, i) => {
+        const price = (45900 + i * 10).toString();
+        const amount = (Math.random() * 2).toFixed(4);
+        return [price, amount];
+      });
 
-      {orderType === "limit" && (
-        <View style={styles.inputContainer}>
-          <Text style={styles.inputLabel}>Preço</Text>
-          <TextInput
-            style={styles.input}
-            value={price}
-            onChangeText={setPrice}
-            keyboardType="numeric"
-            placeholder="0.00"
-            placeholderTextColor="#848E9C"
-          />
-          <Text style={styles.inputSuffix}>USDT</Text>
-        </View>
-      )}
+      const bids = Array.from({ length: 10 }, (_, i) => {
+        const price = (45800 - i * 10).toString();
+        const amount = (Math.random() * 2).toFixed(4);
+        return [price, amount];
+      });
 
-      <View style={styles.inputContainer}>
-        <Text style={styles.inputLabel}>Quantidade</Text>
-        <TextInput
-          style={styles.input}
-          value={amount}
-          onChangeText={setAmount}
-          keyboardType="numeric"
-          placeholder="0.00"
-          placeholderTextColor="#848E9C"
-        />
-        <Text style={styles.inputSuffix}>BTC</Text>
-      </View>
+      setOrderBookData((prev) => ({
+        ...prev,
+        asks: asks as Array<[string, string]>,
+        bids: bids as Array<[string, string]>,
+      }));
+    };
 
-      <TouchableOpacity
-        style={[
-          styles.submitButton,
-          { backgroundColor: activeTab === "buy" ? "#0ecb81" : "#f6465d" },
-        ]}
-        onPress={handleSubmit}
-      >
-        <Text style={styles.submitButtonText}>
-          {activeTab === "buy" ? "Comprar BTC" : "Vender BTC"}
-        </Text>
-      </TouchableOpacity>
-    </View>
-  );
+    generateOrderBookData();
+    const interval = setInterval(generateOrderBookData, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <Animated.View entering={FadeIn} style={styles.container}>
       <ScrollView>
-        {renderOrderBook()}
-        {renderTradeForm()}
-      </ScrollView>
-
-      {showToast && (
-        <Toast
-          message={toastMessage}
-          type={toastMessage.includes("sucesso") ? "success" : "error"}
-          onHide={() => setShowToast(false)}
+        <OrderBook
+          asks={orderBookData.asks}
+          bids={orderBookData.bids}
+          lastPrice={orderBookData.lastPrice}
+          priceChangePercent={orderBookData.priceChangePercent}
         />
-      )}
+
+        <View style={styles.tradeFormContainer}>
+          {/* Tabs de Compra/Venda */}
+          <View style={styles.tabContainer}>
+            <TouchableOpacity
+              style={[styles.tab, activeTab === "buy" && styles.buyTab]}
+              onPress={() => setActiveTab("buy")}
+            >
+              <Text
+                style={[
+                  styles.tabText,
+                  activeTab === "buy" && styles.activeTabText,
+                ]}
+              >
+                Comprar
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.tab, activeTab === "sell" && styles.sellTab]}
+              onPress={() => setActiveTab("sell")}
+            >
+              <Text
+                style={[
+                  styles.tabText,
+                  activeTab === "sell" && styles.activeTabText,
+                ]}
+              >
+                Vender
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          {orderType === "limit" && (
+            <View style={styles.inputContainer}>
+              <Text style={styles.inputLabel}>Preço</Text>
+              <TextInput
+                style={styles.input}
+                value={price}
+                onChangeText={(text) => {
+                  setPrice(text);
+                  calculateTotal();
+                }}
+                keyboardType="numeric"
+                placeholder="0.00"
+                placeholderTextColor="#848E9C"
+              />
+              <Text style={styles.inputSuffix}>USDT</Text>
+            </View>
+          )}
+
+          <View style={styles.inputContainer}>
+            <Text style={styles.inputLabel}>Quantidade</Text>
+            <TextInput
+              style={styles.input}
+              value={amount}
+              onChangeText={(text) => {
+                setAmount(text);
+                calculateTotal();
+              }}
+              keyboardType="numeric"
+              placeholder="0.00"
+              placeholderTextColor="#848E9C"
+            />
+            <Text style={styles.inputSuffix}>BTC</Text>
+          </View>
+
+          <View style={styles.totalContainer}>
+            <Text style={styles.totalLabel}>Total</Text>
+            <Text style={styles.totalValue}>${total} USDT</Text>
+          </View>
+
+          <TouchableOpacity
+            style={[
+              styles.submitButton,
+              {
+                backgroundColor: activeTab === "buy" ? "#0ecb81" : "#f6465d",
+                opacity: !amount || (orderType === "limit" && !price) ? 0.5 : 1,
+              },
+            ]}
+            onPress={handleSubmit}
+            disabled={!amount || (orderType === "limit" && !price)}
+          >
+            <Text style={styles.submitButtonText}>
+              {activeTab === "buy" ? "Comprar BTC" : "Vender BTC"}
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
     </Animated.View>
   );
 };
@@ -348,6 +353,30 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   submitButtonText: {
+    color: "#FFFFFF",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  buyTab: {
+    borderBottomColor: "#0ecb81",
+    borderBottomWidth: 2,
+  },
+  sellTab: {
+    borderBottomColor: "#f6465d",
+    borderBottomWidth: 2,
+  },
+  totalContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginVertical: 16,
+    paddingHorizontal: 12,
+  },
+  totalLabel: {
+    color: "#FFFFFF",
+    fontSize: 16,
+  },
+  totalValue: {
     color: "#FFFFFF",
     fontSize: 16,
     fontWeight: "bold",
