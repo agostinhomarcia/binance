@@ -42,13 +42,11 @@ const ProfileScreen = () => {
   return (
     <Animated.View entering={FadeIn} style={styles.container}>
       <ScrollView>
-        {/* Cabeçalho do Perfil */}
         <View style={styles.header}>
           <Icon name="account-circle" size={80} color="#F0B90B" />
           <Text style={styles.username}>Usuário</Text>
         </View>
 
-        {/* Preferências */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Preferências</Text>
 
@@ -84,7 +82,6 @@ const ProfileScreen = () => {
           </TouchableOpacity>
         </View>
 
-        {/* Favoritos */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Favoritos</Text>
           <TouchableOpacity style={styles.menuItem}>
@@ -94,7 +91,6 @@ const ProfileScreen = () => {
           </TouchableOpacity>
         </View>
 
-        {/* Configurações do App */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Configurações do App</Text>
 
@@ -118,7 +114,6 @@ const ProfileScreen = () => {
           </TouchableOpacity>
         </View>
 
-        {/* Sobre */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Sobre</Text>
 
