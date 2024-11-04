@@ -1,11 +1,10 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { View, Text } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import Animated, { FadeIn } from "react-native-reanimated";
 
 import HomeScreen from "../screens/HomeScreen";
 import MarketsScreen from "../screens/MarketsScreen";
+import TradeScreen from "../screens/TradeScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -57,10 +56,3 @@ export default function AppContent() {
     </Tab.Navigator>
   );
 }
-
-// Placeholder screens
-const TradeScreen = () => (
-  <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-    <Text>Hello world, esta é a página Trade!</Text>
-  </View>
-);
