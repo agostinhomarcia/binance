@@ -9,12 +9,48 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Animated, { FadeIn } from "react-native-reanimated";
+import Toast from "../components/Toast";
 
 const TradeScreen = () => {
   const [activeTab, setActiveTab] = useState<"buy" | "sell">("buy");
   const [orderType, setOrderType] = useState<"limit" | "market">("limit");
   const [price, setPrice] = useState("");
   const [amount, setAmount] = useState("");
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+
+  const handleSubmit = () => {
+    if (orderType === "limit" && !price) {
+      setToastMessage("Por favor, insira um preço");
+      setShowToast(true);
+      return;
+    }
+
+    if (!amount) {
+      setToastMessage("Por favor, insira uma quantidade");
+      setShowToast(true);
+      return;
+    }
+
+    const orderDetails = {
+      type: activeTab,
+      orderType: orderType,
+      price: price,
+      amount: amount,
+    };
+
+    console.log("Ordem enviada:", orderDetails);
+
+    setPrice("");
+    setAmount("");
+
+    setToastMessage(
+      `Ordem de ${
+        activeTab === "buy" ? "compra" : "venda"
+      } enviada com sucesso!`
+    );
+    setShowToast(true);
+  };
 
   const renderOrderBook = () => (
     <View style={styles.orderBookContainer}>
@@ -152,6 +188,7 @@ const TradeScreen = () => {
           styles.submitButton,
           { backgroundColor: activeTab === "buy" ? "#0ecb81" : "#f6465d" },
         ]}
+        onPress={handleSubmit}
       >
         <Text style={styles.submitButtonText}>
           {activeTab === "buy" ? "Comprar BTC" : "Vender BTC"}
@@ -166,6 +203,14 @@ const TradeScreen = () => {
         {renderOrderBook()}
         {renderTradeForm()}
       </ScrollView>
+
+      {showToast && (
+        <Toast
+          message={toastMessage}
+          type={toastMessage.includes("sucesso") ? "success" : "error"}
+          onHide={() => setShowToast(false)}
+        />
+      )}
     </Animated.View>
   );
 };

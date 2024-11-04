@@ -5,6 +5,7 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import HomeScreen from "../screens/HomeScreen";
 import MarketsScreen from "../screens/MarketsScreen";
 import TradeScreen from "../screens/TradeScreen";
+import ProfileScreen from "../screens/ProfileScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -50,6 +51,15 @@ export default function AppContent() {
         options={{
           tabBarIcon: ({ color }) => (
             <Icon name="swap-horizontal" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Icon name="account" size={24} color={color} />
           ),
         }}
       />
