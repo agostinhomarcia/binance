@@ -48,6 +48,45 @@ Este aplicativo é uma exchange de criptomoedas que oferece funcionalidades como
 - Gerenciamento de carteira
 - Configurações do aplicativo
 
+### 💱 Trading View
+
+O módulo de trading oferece uma experiência completa de negociação com:
+
+#### 📊 Livro de Ofertas (OrderBook)
+
+- Visualização em tempo real das ordens de compra e venda
+- Atualização automática via WebSocket
+- Indicadores visuais de pressão compradora/vendedora
+- Preço atual e variação percentual
+- Formatação numérica otimizada para valores financeiros
+
+#### 🔄 Interface de Trading
+
+- Tabs alternáveis entre Compra/Venda
+- Suporte a ordens Limite e Mercado
+- Cálculo automático do valor total
+- Validação em tempo real dos inputs
+- Feedback visual para todas as ações
+- Confirmação de ordens para prevenir erros
+- Campos auto-ajustáveis para diferentes moedas
+
+#### 🔐 Segurança
+
+- Validação dupla de ordens
+- Confirmação antes da execução
+- Feedback claro de sucesso/erro
+- Proteção contra cliques duplos
+- Formatação segura de valores decimais
+
+#### 💡 UX/UI
+
+- Design inspirado nas principais exchanges
+- Tema escuro profissional
+- Feedback visual instantâneo
+- Animações suaves
+- Interface responsiva
+- Suporte a gestos
+
 ## 🔌 APIs Utilizadas
 
 - Binance WebSocket API para dados em tempo real
@@ -136,3 +175,17 @@ Contribuições são bem-vindas! Sinta-se à vontade para:
 ## 📄 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 🎥 Demonstração do Projeto
+
+[![Crypto Exchange App Demo](https://img.youtube.com/vi/SEU_VIDEO_ID/maxresdefault.jpg)](https://youtu.be/SEU_VIDEO_ID)
+
+> Clique na imagem acima para ver a demonstração completa do projeto no YouTube
+
+### ✨ Principais funcionalidades demonstradas no vídeo:
+
+- Dashboard com visão geral do mercado
+- Lista de criptomoedas com preços em tempo real
+- Interface completa de trading com orderbook
+- Sistema de compra e venda de criptomoedas
+- Perfil do usuário
