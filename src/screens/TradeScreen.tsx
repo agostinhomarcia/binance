@@ -7,6 +7,8 @@ import {
   TextInput,
   ScrollView,
   Alert,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Animated, { FadeIn } from "react-native-reanimated";
@@ -120,103 +122,110 @@ const TradeScreen = () => {
   }, []);
 
   return (
-    <Animated.View entering={FadeIn} style={styles.container}>
-      <ScrollView>
-        <OrderBook
-          asks={orderBookData.asks}
-          bids={orderBookData.bids}
-          lastPrice={orderBookData.lastPrice}
-          priceChangePercent={orderBookData.priceChangePercent}
-        />
+    <KeyboardAvoidingView 
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}
+    >
+      <Animated.View entering={FadeIn} style={styles.container}>
+        <ScrollView 
+          contentContainerStyle={styles.scrollViewContent}
+          showsVerticalScrollIndicator={false}
+        >
+          <OrderBook
+            asks={orderBookData.asks}
+            bids={orderBookData.bids}
+            lastPrice={orderBookData.lastPrice}
+            priceChangePercent={orderBookData.priceChangePercent}
+          />
 
-        <View style={styles.tradeFormContainer}>
-          {/* Tabs de Compra/Venda */}
-          <View style={styles.tabContainer}>
-            <TouchableOpacity
-              style={[styles.tab, activeTab === "buy" && styles.buyTab]}
-              onPress={() => setActiveTab("buy")}
-            >
-              <Text
-                style={[
-                  styles.tabText,
-                  activeTab === "buy" && styles.activeTabText,
-                ]}
+          <View style={styles.tradeFormContainer}>
+            <View style={styles.tabContainer}>
+              <TouchableOpacity
+                style={[styles.tab, activeTab === "buy" && styles.buyTab]}
+                onPress={() => setActiveTab("buy")}
               >
-                Comprar
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.tab, activeTab === "sell" && styles.sellTab]}
-              onPress={() => setActiveTab("sell")}
-            >
-              <Text
-                style={[
-                  styles.tabText,
-                  activeTab === "sell" && styles.activeTabText,
-                ]}
+                <Text
+                  style={[
+                    styles.tabText,
+                    activeTab === "buy" && styles.activeTabText,
+                  ]}
+                >
+                  Comprar
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.tab, activeTab === "sell" && styles.sellTab]}
+                onPress={() => setActiveTab("sell")}
               >
-                Vender
-              </Text>
-            </TouchableOpacity>
-          </View>
+                <Text
+                  style={[
+                    styles.tabText,
+                    activeTab === "sell" && styles.activeTabText,
+                  ]}
+                >
+                  Vender
+                </Text>
+              </TouchableOpacity>
+            </View>
 
-          {orderType === "limit" && (
+            {orderType === "limit" && (
+              <View style={styles.inputContainer}>
+                <Text style={styles.inputLabel}>Preço</Text>
+                <TextInput
+                  style={styles.input}
+                  value={price}
+                  onChangeText={(text) => {
+                    setPrice(text);
+                    calculateTotal();
+                  }}
+                  keyboardType="numeric"
+                  placeholder="0.00"
+                  placeholderTextColor="#848E9C"
+                />
+                <Text style={styles.inputSuffix}>USDT</Text>
+              </View>
+            )}
+
             <View style={styles.inputContainer}>
-              <Text style={styles.inputLabel}>Preço</Text>
+              <Text style={styles.inputLabel}>Quantidade</Text>
               <TextInput
                 style={styles.input}
-                value={price}
+                value={amount}
                 onChangeText={(text) => {
-                  setPrice(text);
+                  setAmount(text);
                   calculateTotal();
                 }}
                 keyboardType="numeric"
                 placeholder="0.00"
                 placeholderTextColor="#848E9C"
               />
-              <Text style={styles.inputSuffix}>USDT</Text>
+              <Text style={styles.inputSuffix}>BTC</Text>
             </View>
-          )}
 
-          <View style={styles.inputContainer}>
-            <Text style={styles.inputLabel}>Quantidade</Text>
-            <TextInput
-              style={styles.input}
-              value={amount}
-              onChangeText={(text) => {
-                setAmount(text);
-                calculateTotal();
-              }}
-              keyboardType="numeric"
-              placeholder="0.00"
-              placeholderTextColor="#848E9C"
-            />
-            <Text style={styles.inputSuffix}>BTC</Text>
+            <View style={styles.totalContainer}>
+              <Text style={styles.totalLabel}>Total</Text>
+              <Text style={styles.totalValue}>${total} USDT</Text>
+            </View>
+
+            <TouchableOpacity
+              style={[
+                styles.submitButton,
+                {
+                  backgroundColor: activeTab === "buy" ? "#0ecb81" : "#f6465d",
+                  opacity: !amount || (orderType === "limit" && !price) ? 0.5 : 1,
+                },
+              ]}
+              onPress={handleSubmit}
+              disabled={!amount || (orderType === "limit" && !price)}
+            >
+              <Text style={styles.submitButtonText}>
+                {activeTab === "buy" ? "Comprar BTC" : "Vender BTC"}
+              </Text>
+            </TouchableOpacity>
           </View>
-
-          <View style={styles.totalContainer}>
-            <Text style={styles.totalLabel}>Total</Text>
-            <Text style={styles.totalValue}>${total} USDT</Text>
-          </View>
-
-          <TouchableOpacity
-            style={[
-              styles.submitButton,
-              {
-                backgroundColor: activeTab === "buy" ? "#0ecb81" : "#f6465d",
-                opacity: !amount || (orderType === "limit" && !price) ? 0.5 : 1,
-              },
-            ]}
-            onPress={handleSubmit}
-            disabled={!amount || (orderType === "limit" && !price)}
-          >
-            <Text style={styles.submitButtonText}>
-              {activeTab === "buy" ? "Comprar BTC" : "Vender BTC"}
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </ScrollView>
-    </Animated.View>
+        </ScrollView>
+      </Animated.View>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -224,6 +233,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#1E2026",
+  },
+  scrollViewContent: {
+    flexGrow: 1,
+    paddingBottom: 20,
   },
   orderBookContainer: {
     padding: 16,

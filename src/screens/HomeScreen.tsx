@@ -6,43 +6,12 @@ import {
   Dimensions,
   Text,
   TouchableOpacity,
+  Platform,
 } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import Animated, { FadeIn } from "react-native-reanimated";
 import { formatPrice, formatPercentage } from "../utils/formatters";
 
-const calculateMA = (data: number[], period: number = 5) => {
-  return data.map((_, index) => {
-    if (index < period - 1) return null;
-    const slice = data.slice(index - period + 1, index + 1);
-    const sum = slice.reduce((a, b) => a + b, 0);
-    return sum / period;
-  });
-};
-
-const calculateRSI = (data: number[], period: number = 14) => {
-  let gains = 0;
-  let losses = 0;
-
-  const rsi = data.map((value, index) => {
-    if (index === 0) return null;
-    const difference = value - data[index - 1];
-    if (difference > 0) {
-      gains += difference;
-    } else {
-      losses -= difference;
-    }
-
-    if (index < period) return null;
-
-    const averageGain = gains / period;
-    const averageLoss = losses / period;
-    const rs = averageGain / averageLoss;
-    return 100 - 100 / (1 + rs);
-  });
-
-  return rsi;
-};
 
 const HomeScreen = () => {
   const [chartData, setChartData] = useState({
@@ -101,6 +70,8 @@ const HomeScreen = () => {
     }
   };
 
+  const chartHeight = Platform.OS === 'ios' ? 180 : 190;
+
   return (
     <Animated.View entering={FadeIn} style={styles.container}>
       <ScrollView
@@ -146,7 +117,7 @@ const HomeScreen = () => {
           <LineChart
             data={chartData}
             width={Dimensions.get("window").width - 32}
-            height={220}
+            height={chartHeight}
             chartConfig={{
               backgroundColor: "#1E2026",
               backgroundGradientFrom: "#1E2026",
@@ -183,7 +154,7 @@ const HomeScreen = () => {
           <LineChart
             data={chartData}
             width={Dimensions.get("window").width - 32}
-            height={220}
+            height={chartHeight}
             chartConfig={{
               backgroundColor: "#1E2026",
               backgroundGradientFrom: "#1E2026",

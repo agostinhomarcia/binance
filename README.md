@@ -11,12 +11,25 @@ Este aplicativo é uma exchange de criptomoedas que oferece funcionalidades como
 ### 📱 Screenshots
 
 <div align="center">
+  <h3>Android</h3>
   <img src="/assets/images/home.jpg" alt="Home Screen" width="200"/>
   <img src="/assets/images/markets1.jpg" alt="Markets Screen" width="200"/>
   <img src="/assets/images/markets2.jpg" alt="Trade Screen" width="200"/>
   <img src="/assets/images/trade1.jpg" alt="Profile Screen" width="200"/>
   <img src="/assets/images/trade2.jpg" alt="Profile Screen" width="200"/>
   <img src="/assets/images/profile.jpg" alt="Profile Screen" width="200"/>
+</div>
+
+<div align="center">
+  <h3>IPhone</h3>
+  <img src="/assets/images/home-iphone.png" alt="Home Screen" width="200"/>
+  <img src="/assets/images/markets-iphone1.png" alt="Markets Screen" width="200"/>
+  <img src="/assets/images/markets-iphone2.png" alt="Trade Screen" width="200"/>
+  <img src="/assets/images/trade-iphone1.png" alt="Profile Screen" width="200"/>
+  <img src="/assets/images/trade-iphone2.png" alt="Profile Screen" width="200"/>
+  <img src="/assets/images/trade-iphone3.png" alt="Profile Screen" width="200"/>
+  <img src="/assets/images/profile-iphone1.png" alt="Profile Screen" width="200"/>
+  <img src="/assets/images/profile-iphone2.png" alt="Profile Screen" width="200"/>
 </div>
 
 ## 🚀 Tecnologias Utilizadas
