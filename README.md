@@ -19,8 +19,6 @@ Este aplicativo é uma exchange de criptomoedas que oferece funcionalidades como
   <img src="/assets/images/profile.jpg" alt="Profile Screen" width="200"/>
 </div>
 
-> Clique na imagem acima para ver a demonstração completa do projeto no YouTube
-
 ## 🚀 Tecnologias Utilizadas
 
 - React Native
@@ -84,14 +82,6 @@ O módulo de trading oferece uma experiência completa de negociação com:
 - Feedback visual para todas as ações
 - Confirmação de ordens para prevenir erros
 - Campos auto-ajustáveis para diferentes moedas
-
-#### 🔐 Segurança
-
-- Validação dupla de ordens
-- Confirmação antes da execução
-- Feedback claro de sucesso/erro
-- Proteção contra cliques duplos
-- Formatação segura de valores decimais
 
 #### 💡 UX/UI
 
