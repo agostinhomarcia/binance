@@ -6,6 +6,21 @@ Uma aplicação mobile de exchange de criptomoedas desenvolvida com React Native
 
 Este aplicativo é uma exchange de criptomoedas que oferece funcionalidades como visualização de mercado em tempo real, trading e gerenciamento de perfil. O projeto foi desenvolvido utilizando as melhores práticas de desenvolvimento mobile e design de interface.
 
+## 🎥 Demonstração do Projeto
+
+### 📱 Screenshots
+
+<div align="center">
+  <img src="/assets/images/home.jpg" alt="Home Screen" width="200"/>
+  <img src="/assets/images/markets1.jpg" alt="Markets Screen" width="200"/>
+  <img src="/assets/images/markets2.jpg" alt="Trade Screen" width="200"/>
+  <img src="/assets/images/trade1.jpg" alt="Profile Screen" width="200"/>
+  <img src="/assets/images/trade2.jpg" alt="Profile Screen" width="200"/>
+  <img src="/assets/images/profile.jpg" alt="Profile Screen" width="200"/>
+</div>
+
+> Clique na imagem acima para ver a demonstração completa do projeto no YouTube
+
 ## 🚀 Tecnologias Utilizadas
 
 - React Native
@@ -175,12 +190,6 @@ Contribuições são bem-vindas! Sinta-se à vontade para:
 ## 📄 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
-## 🎥 Demonstração do Projeto
-
-[![Crypto Exchange App Demo](https://img.youtube.com/vi/SEU_VIDEO_ID/maxresdefault.jpg)](https://youtu.be/SEU_VIDEO_ID)
-
-> Clique na imagem acima para ver a demonstração completa do projeto no YouTube
 
 ### ✨ Principais funcionalidades demonstradas no vídeo:
 
