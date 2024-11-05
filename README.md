@@ -169,17 +169,6 @@ src/
     └── market.ts
 ```
 
-## 🔄 Atualizações Futuras Planejadas
-
-- [ ] Implementação de autenticação
-- [ ] Suporte a múltiplas criptomoedas
-- [ ] Histórico de transações
-- [ ] Notificações de preço
-- [ ] Temas claro/escuro
-- [ ] Suporte a múltiplos idiomas
-- [ ] Mais tipos de gráficos
-- [ ] Sistema de favoritos
-
 ## 👥 Contribuição
 
 Contribuições são bem-vindas! Sinta-se à vontade para:
@@ -189,10 +178,6 @@ Contribuições são bem-vindas! Sinta-se à vontade para:
 3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abrir um Pull Request
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ### ✨ Principais funcionalidades demonstradas no vídeo:
 
