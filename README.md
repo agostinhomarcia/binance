@@ -11,6 +11,14 @@ Este aplicativo é uma exchange de criptomoedas que oferece funcionalidades como
 ### 📱 Screenshots
 
 <div align="center">
+  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWxxcnV4ZXpleDR2YjR6bzZ2bW9xNnM0ZzdycTJpNnBnOGZjZGV0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ijKEOx0Fx9MFphrWIj/giphy.gif" alt="Home Screen" width="200"/>
+  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmQ5cDBlaXpqZHJpMGlmcG1lczZ2M2txYmxkZ2VlZWoxazdjeGVqayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bxNenYmaYPZ5re4DXN/giphy.gif" alt="Home Screen" width="200"/>
+  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3hhc2Yzb2d0b3R2ZDl4aHNjMGg1cWpyNXdwYXVrMGVsYm41dXA4eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iXb234rPdzeQH5GdD1/giphy.gif" alt="Home Screen" width="200"/>
+  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWg4YXg3Mmhoa2hmd2MyMHhmdmVlOGVmNWM4amx1Zzc1MjRwcmQ3aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vJVjsOGV2Mymc14sLR/giphy.gif" alt="Home Screen" width="200"/>
+  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXhnNHgzdGs5eGJwMXlhaXZ6ZjBiZ2dlNTFwZmIwM3RqaXd2eXRmbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sunP6z1QZPjlFC7fMZ/giphy.gif" alt="Home Screen" width="200"/>
+</div>
+
+<div align="center">
   <h3>Android</h3>
   <img src="/assets/images/home.jpg" alt="Home Screen" width="200"/>
   <img src="/assets/images/markets1.jpg" alt="Markets Screen" width="200"/>
