@@ -187,10 +187,25 @@ Contribuições são bem-vindas! Sinta-se à vontade para:
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abrir um Pull Request
 
-### ✨ Principais funcionalidades demonstradas no vídeo:
+## 🔐 Funcionalidades de Autenticação
 
-- Dashboard com visão geral do mercado
-- Lista de criptomoedas com preços em tempo real
-- Interface completa de trading com orderbook
-- Sistema de compra e venda de criptomoedas
-- Perfil do usuário
+### Login Tradicional
+
+- Sistema de autenticação com usuário e senha
+- Credenciais armazenadas de forma segura usando SecureStore
+- Interface intuitiva com feedback visual
+- Visualização opcional da senha
+- Conversão automática do nome de usuário para minúsculas
+
+### Autenticação Biométrica
+
+- Suporte para autenticação via biometria (digital/facial)
+- Toggle para ativar/desativar a funcionalidade
+- Verificação automática de compatibilidade do dispositivo
+- Persistência da preferência do usuário
+
+### Tecnologias Utilizadas
+
+- `expo-secure-store`: Armazenamento seguro de credenciais
+- `expo-local-authentication`: Autenticação biométrica
+- `@react-native-async-storage/async-storage`: Gerenciamento de preferências
