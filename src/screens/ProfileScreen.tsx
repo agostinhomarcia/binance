@@ -305,7 +305,7 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: "center",
-    padding: 20,
+    padding: 8,
     borderBottomWidth: 1,
     borderBottomColor: "#2B2F36",
   },
@@ -316,7 +316,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   section: {
-    padding: 16,
+    padding: 8,
     borderBottomWidth: 1,
     borderBottomColor: "#2B2F36",
   },
