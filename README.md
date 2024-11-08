@@ -51,6 +51,28 @@ Este aplicativo é uma exchange de criptomoedas que oferece funcionalidades como
 - WebSocket (para dados em tempo real)
 - React Native Vector Icons
 
+## 🔐 Funcionalidades de Autenticação
+
+### Login Tradicional
+
+- Sistema de autenticação com usuário e senha
+- Credenciais armazenadas de forma segura usando SecureStore
+- Interface intuitiva com feedback visual
+- Visualização opcional da senha
+- Conversão automática do nome de usuário para minúsculas
+
+### Autenticação Biométrica
+
+- Suporte para autenticação via biometria (digital)
+- Toggle para ativar/desativar a funcionalidade
+- Persistência da preferência do usuário
+
+### Tecnologias Utilizadas
+
+- `expo-secure-store`: Armazenamento seguro de credenciais
+- `expo-local-authentication`: Autenticação biométrica
+- `@react-native-async-storage/async-storage`: Gerenciamento de preferências
+
 ## 📋 Funcionalidades Principais
 
 ### 🏠 Home
@@ -187,26 +209,3 @@ Contribuições são bem-vindas! Sinta-se à vontade para:
 3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abrir um Pull Request
-
-## 🔐 Funcionalidades de Autenticação
-
-### Login Tradicional
-
-- Sistema de autenticação com usuário e senha
-- Credenciais armazenadas de forma segura usando SecureStore
-- Interface intuitiva com feedback visual
-- Visualização opcional da senha
-- Conversão automática do nome de usuário para minúsculas
-
-### Autenticação Biométrica
-
-- Suporte para autenticação via biometria (digital/facial)
-- Toggle para ativar/desativar a funcionalidade
-- Verificação automática de compatibilidade do dispositivo
-- Persistência da preferência do usuário
-
-### Tecnologias Utilizadas
-
-- `expo-secure-store`: Armazenamento seguro de credenciais
-- `expo-local-authentication`: Autenticação biométrica
-- `@react-native-async-storage/async-storage`: Gerenciamento de preferências
