@@ -124,11 +124,13 @@ O módulo de trading oferece uma experiência completa de negociação com:
 
 O aplicativo segue o tema escuro da Binance com:
 
-- Cores principais:
-  - Background: #1E2026
-  - Accent: #F0B90B
-  - Success: #0ecb81
-  - Error: #f6465d
+| Cor                                                             | Hex       | Uso        |
+| --------------------------------------------------------------- | --------- | ---------- |
+| ![](https://via.placeholder.com/15/1E2026/1E2026.png) `#1E2026` | `#1E2026` | Background |
+| ![](https://via.placeholder.com/15/F0B90B/F0B90B.png) `#F0B90B` | `#F0B90B` | Accent     |
+| ![](https://via.placeholder.com/15/0ecb81/0ecb81.png) `#0ecb81` | `#0ecb81` | Success    |
+| ![](https://via.placeholder.com/15/f6465d/f6465d.png) `#f6465d` | `#f6465d` | Error      |
+
 - Tipografia consistente
 - Animações suaves
 - Interface responsiva
