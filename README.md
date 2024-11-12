@@ -12,10 +12,11 @@ Este aplicativo é uma exchange de criptomoedas que oferece funcionalidades como
 
 <div align="center">
   <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWxxcnV4ZXpleDR2YjR6bzZ2bW9xNnM0ZzdycTJpNnBnOGZjZGV0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ijKEOx0Fx9MFphrWIj/giphy.gif" alt="Home Screen" width="200"/>
-  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmQ5cDBlaXpqZHJpMGlmcG1lczZ2M2txYmxkZ2VlZWoxazdjeGVqayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bxNenYmaYPZ5re4DXN/giphy.gif" alt="Home Screen" width="200"/>
-  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3hhc2Yzb2d0b3R2ZDl4aHNjMGg1cWpyNXdwYXVrMGVsYm41dXA4eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iXb234rPdzeQH5GdD1/giphy.gif" alt="Home Screen" width="200"/>
-  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWg4YXg3Mmhoa2hmd2MyMHhmdmVlOGVmNWM4amx1Zzc1MjRwcmQ3aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vJVjsOGV2Mymc14sLR/giphy.gif" alt="Home Screen" width="200"/>
-  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXhnNHgzdGs5eGJwMXlhaXZ6ZjBiZ2dlNTFwZmIwM3RqaXd2eXRmbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sunP6z1QZPjlFC7fMZ/giphy.gif" alt="Home Screen" width="200"/>
+  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmQ5cDBlaXpqZHJpMGlmcG1lczZ2M2txYmxkZ2VlZWoxazdjeGVqayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bxNenYmaYPZ5re4DXN/giphy.gif" alt="Markets Screen" width="200"/>
+  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3hhc2Yzb2d0b3R2ZDl4aHNjMGg1cWpyNXdwYXVrMGVsYm41dXA4eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iXb234rPdzeQH5GdD1/giphy.gif" alt="Trade Screen" width="200"/>
+  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWg4YXg3Mmhoa2hmd2MyMHhmdmVlOGVmNWM4amx1Zzc1MjRwcmQ3aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vJVjsOGV2Mymc14sLR/giphy.gif" alt="Trade Screen" width="200"/>
+  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXhnNHgzdGs5eGJwMXlhaXZ6ZjBiZ2dlNTFwZmIwM3RqaXd2eXRmbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sunP6z1QZPjlFC7fMZ/giphy.gif" alt="Profile Screen" width="200"/>
+  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2FrMTVoOHJieXR3eHVlOXQ1djBnaDJ3cmJ4Nm00ZHNyZHN6eGFqbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XPZsi93o3Wfco1GlYS/giphy.gif" alt="Profile Screen" width="200"/>
 </div>
 
 <div align="center">
@@ -49,6 +50,28 @@ Este aplicativo é uma exchange de criptomoedas que oferece funcionalidades como
 - Victory Native (para gráficos)
 - WebSocket (para dados em tempo real)
 - React Native Vector Icons
+
+## 🔐 Funcionalidades de Autenticação
+
+### Login Tradicional
+
+- Sistema de autenticação com usuário e senha
+- Credenciais armazenadas de forma segura usando SecureStore
+- Interface intuitiva com feedback visual
+- Visualização opcional da senha
+- Conversão automática do nome de usuário para minúsculas
+
+### Autenticação Biométrica
+
+- Suporte para autenticação via biometria (digital)
+- Toggle para ativar/desativar a funcionalidade
+- Persistência da preferência do usuário
+
+### Tecnologias Utilizadas
+
+- `expo-secure-store`: Armazenamento seguro de credenciais
+- `expo-local-authentication`: Autenticação biométrica
+- `@react-native-async-storage/async-storage`: Gerenciamento de preferências
 
 ## 📋 Funcionalidades Principais
 
@@ -188,26 +211,3 @@ Contribuições são bem-vindas! Sinta-se à vontade para:
 3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abrir um Pull Request
-
-## 🔐 Funcionalidades de Autenticação
-
-### Login Tradicional
-
-- Sistema de autenticação com usuário e senha
-- Credenciais armazenadas de forma segura usando SecureStore
-- Interface intuitiva com feedback visual
-- Visualização opcional da senha
-- Conversão automática do nome de usuário para minúsculas
-
-### Autenticação Biométrica
-
-- Suporte para autenticação via biometria (digital/facial)
-- Toggle para ativar/desativar a funcionalidade
-- Verificação automática de compatibilidade do dispositivo
-- Persistência da preferência do usuário
-
-### Tecnologias Utilizadas
-
-- `expo-secure-store`: Armazenamento seguro de credenciais
-- `expo-local-authentication`: Autenticação biométrica
-- `@react-native-async-storage/async-storage`: Gerenciamento de preferências
