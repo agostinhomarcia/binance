@@ -6,6 +6,8 @@ Uma aplicação mobile de exchange de criptomoedas desenvolvida com React Native
 
 Este aplicativo é uma exchange de criptomoedas que oferece funcionalidades como visualização de mercado em tempo real, trading e gerenciamento de perfil. O projeto foi desenvolvido utilizando as melhores práticas de desenvolvimento mobile e design de interface.
 
+<hr>
+
 ## 🎥 Demonstração do Projeto
 
 ### 📱 Screenshots
@@ -53,6 +55,8 @@ Este aplicativo é uma exchange de criptomoedas que oferece funcionalidades como
 - WebSocket (para dados em tempo real)
 - React Native Vector Icons
 
+<hr>
+
 ## 🔐 Funcionalidades de Autenticação
 
 ### Login Tradicional
@@ -74,6 +78,8 @@ Este aplicativo é uma exchange de criptomoedas que oferece funcionalidades como
 - `expo-secure-store`: Armazenamento seguro de credenciais
 - `expo-local-authentication`: Autenticação biométrica
 - `@react-native-async-storage/async-storage`: Gerenciamento de preferências
+
+<hr>
 
 ## 📋 Funcionalidades Principais
 
@@ -138,12 +144,16 @@ O módulo de trading oferece uma experiência completa de negociação com:
 - Interface responsiva
 - Suporte a gestos
 
+<hr>
+
 ## 🔌 APIs Utilizadas
 
 - Binance WebSocket API para dados em tempo real
   - Preços: wss://stream.binance.com:9443/ws/
   - Gráfico de velas: /stream?streams=btcusdt@kline_1m
   - Livro de ofertas: /stream?streams=btcusdt@depth
+
+<hr>
 
 ## 🎨 Design
 
