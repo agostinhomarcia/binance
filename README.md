@@ -41,6 +41,8 @@ Este aplicativo é uma exchange de criptomoedas que oferece funcionalidades como
   <img src="/assets/images/profile-iphone2.png" alt="Profile Screen" width="200"/>
 </div>
 
+<hr>
+
 ## 🚀 Tecnologias Utilizadas
 
 - React Native
@@ -158,6 +160,8 @@ O aplicativo segue o tema escuro da Binance com:
 - Animações suaves
 - Interface responsiva
 
+<hr>
+
 ## 📦 Como Instalar
 
 1. Clone o repositório:
@@ -181,6 +185,8 @@ npm run android
 npm run ios
 ```
 
+<hr>
+
 ## 🛠️ Estrutura do Projeto
 
 ```
@@ -202,6 +208,8 @@ src/
     └── market.ts
 ```
 
+<hr>
+
 ## 👥 Contribuição
 
 Contribuições são bem-vindas! Sinta-se à vontade para:
@@ -211,3 +219,7 @@ Contribuições são bem-vindas! Sinta-se à vontade para:
 3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abrir um Pull Request
+
+<hr>
+
+[🔝 Voltar ao topo](#crypto-exchange-app)
