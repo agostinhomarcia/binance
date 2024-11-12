@@ -6,7 +6,7 @@ Uma aplicação mobile de exchange de criptomoedas desenvolvida com React Native
 
 Este aplicativo é uma exchange de criptomoedas que oferece funcionalidades como visualização de mercado em tempo real, trading e gerenciamento de perfil. O projeto foi desenvolvido utilizando as melhores práticas de desenvolvimento mobile e design de interface.
 
-<hr>
+---
 
 ## 🎥 Demonstração do Projeto
 
@@ -43,7 +43,7 @@ Este aplicativo é uma exchange de criptomoedas que oferece funcionalidades como
   <img src="/assets/images/profile-iphone2.png" alt="Profile Screen" width="200"/>
 </div>
 
-<hr>
+---
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -55,7 +55,7 @@ Este aplicativo é uma exchange de criptomoedas que oferece funcionalidades como
 - WebSocket (para dados em tempo real)
 - React Native Vector Icons
 
-<hr>
+---
 
 ## 🔐 Funcionalidades de Autenticação
 
@@ -79,7 +79,7 @@ Este aplicativo é uma exchange de criptomoedas que oferece funcionalidades como
 - `expo-local-authentication`: Autenticação biométrica
 - `@react-native-async-storage/async-storage`: Gerenciamento de preferências
 
-<hr>
+---
 
 ## 📋 Funcionalidades Principais
 
@@ -144,7 +144,7 @@ O módulo de trading oferece uma experiência completa de negociação com:
 - Interface responsiva
 - Suporte a gestos
 
-<hr>
+---
 
 ## 🔌 APIs Utilizadas
 
@@ -153,7 +153,7 @@ O módulo de trading oferece uma experiência completa de negociação com:
   - Gráfico de velas: /stream?streams=btcusdt@kline_1m
   - Livro de ofertas: /stream?streams=btcusdt@depth
 
-<hr>
+---
 
 ## 🎨 Design
 
@@ -170,7 +170,7 @@ O aplicativo segue o tema escuro da Binance com:
 - Animações suaves
 - Interface responsiva
 
-<hr>
+---
 
 ## 📦 Como Instalar
 
@@ -195,7 +195,7 @@ npm run android
 npm run ios
 ```
 
-<hr>
+---
 
 ## 🛠️ Estrutura do Projeto
 
@@ -218,7 +218,7 @@ src/
     └── market.ts
 ```
 
-<hr>
+---
 
 ## 👥 Contribuição
 
@@ -230,6 +230,6 @@ Contribuições são bem-vindas! Sinta-se à vontade para:
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abrir um Pull Request
 
-<hr>
+---
 
 [🔝 Voltar ao topo](#crypto-exchange-app)
