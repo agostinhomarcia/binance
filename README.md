@@ -153,6 +153,7 @@ O aplicativo segue o tema escuro da Binance com:
 - 🟡 Accent: `#F0B90B`
 - 🟢 Success: `#0ecb81`
 - 🔴 Error: `#f6465d`
+- ⚪ Text: `#FFFFFF`
 - Tipografia consistente
 - Animações suaves
 - Interface responsiva
