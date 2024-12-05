@@ -6,6 +6,7 @@ import {
   FlatList,
   TouchableOpacity,
   RefreshControl,
+  Platform,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Animated, { FadeIn } from "react-native-reanimated";
@@ -146,6 +147,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#1E2026",
+    paddingTop: Platform.OS === "ios" ? 26 : 0,
   },
   itemContainer: {
     flexDirection: "row",

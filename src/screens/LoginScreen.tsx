@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
+  Platform,
 } from "react-native";
 import * as SecureStore from "expo-secure-store";
 
@@ -64,6 +65,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
     backgroundColor: "#1E2026",
+    paddingTop: Platform.OS === "ios" ? 24 : 0,
   },
   title: {
     fontSize: 24,

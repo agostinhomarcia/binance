@@ -122,12 +122,12 @@ const TradeScreen = () => {
   }, []);
 
   return (
-    <KeyboardAvoidingView 
+    <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.container}
     >
       <Animated.View entering={FadeIn} style={styles.container}>
-        <ScrollView 
+        <ScrollView
           contentContainerStyle={styles.scrollViewContent}
           showsVerticalScrollIndicator={false}
         >
@@ -212,7 +212,8 @@ const TradeScreen = () => {
                 styles.submitButton,
                 {
                   backgroundColor: activeTab === "buy" ? "#0ecb81" : "#f6465d",
-                  opacity: !amount || (orderType === "limit" && !price) ? 0.5 : 1,
+                  opacity:
+                    !amount || (orderType === "limit" && !price) ? 0.5 : 1,
                 },
               ]}
               onPress={handleSubmit}
@@ -233,6 +234,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#1E2026",
+    paddingTop: Platform.OS === "ios" ? 10 : 0,
   },
   scrollViewContent: {
     flexGrow: 1,

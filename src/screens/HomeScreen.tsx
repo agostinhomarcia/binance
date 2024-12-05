@@ -12,7 +12,6 @@ import { LineChart } from "react-native-chart-kit";
 import Animated, { FadeIn } from "react-native-reanimated";
 import { formatPrice, formatPercentage } from "../utils/formatters";
 
-
 const HomeScreen = () => {
   const [chartData, setChartData] = useState({
     labels: ["06:52", "06:53", "06:54", "06:55", "06:56"],
@@ -70,7 +69,7 @@ const HomeScreen = () => {
     }
   };
 
-  const chartHeight = Platform.OS === 'ios' ? 180 : 190;
+  const chartHeight = Platform.OS === "ios" ? 180 : 190;
 
   return (
     <Animated.View entering={FadeIn} style={styles.container}>
@@ -195,7 +194,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#1E2026",
-    paddingTop: 8,
+    paddingTop: Platform.OS === "ios" ? 30 : 0,
   },
   scrollView: {
     flex: 1,
